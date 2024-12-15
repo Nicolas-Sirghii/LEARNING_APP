@@ -7,6 +7,9 @@ const wrongAnswer = document.getElementById('WrongContainer');
 const rightAnswer = document.getElementById('RightContainer');
 const theForm = document.getElementById('theForm');
 const myInput = document.getElementById('myInput');
+const containerOne = document.getElementById('containerOne');
+const containerTwo = document.getElementById('containerTwo');
+const containerThree = document.getElementById('containerThree');
 
 
 
@@ -16,6 +19,11 @@ let thirdArray = [];
 let numbers = [];
 let countNumber = 0
 let videoNumb = 65
+let point = "one";
+
+
+
+
 
 
 ///==============================array function=============================================================
@@ -103,6 +111,7 @@ theForm.addEventListener('submit' , (event)=>{
   const theValue = myInput.value;
   //......................................................................................
   if (theValue == "yes") {
+
     /////////////////////////////////////////////////////////////////////////////////
 
     rightAnswer.style.zIndex = "4"
@@ -126,8 +135,30 @@ theForm.addEventListener('submit' , (event)=>{
       } else {
         countNumber = 0
       }
+      
+      if (countNumber < 5) {
+        const pass = document.getElementById(`elemSone${countNumber-1}`);
+      pass.style.backgroundColor = "red"
+      pass.style.border = "2px solid green"
+
+        console.log(numbers)
+      } else {
+        const pass = document.getElementById(`elemSone${countNumber-1}`);
+        pass.style.backgroundColor = "red"
+        pass.style.border = "2px solid green"
+        countNumber = 0
+        console.log(numbers)
+      }
+
+      
+      
+     
     ////////////////////////////////////////////////////////////////////////////////////
   }else{
+
+   
+
+
     ////////////////////////////////////////////////////////////////////////////////////
     if (countNumber < videoNumb -1) {
       countNumber ++
@@ -150,6 +181,20 @@ theForm.addEventListener('submit' , (event)=>{
     videoQuestion.style.zIndex = '-1';
     information.style.zIndex = '3';
     })
+
+    const pass = document.getElementById(`elemSone${countNumber-1}`);
+      pass.style.border = "2px solid green"
+
+      if (countNumber < 5) {
+        console.log(numbers)
+      } else {
+        const pass = document.getElementById(`elemSone${countNumber-1}`);
+        pass.style.border = "2px solid green"
+        countNumber = 0
+        console.log(numbers)
+      }
+  
+      
     ////////////////////////////////////////////////////////////////////////////////////////////
   }
   myInput.value = ''
@@ -197,11 +242,27 @@ learnRandom.addEventListener('click',() => {
       information.style.zIndex = '3';
       
       })
+     
+      for (let i = 0; i < 5; i++) {
+        const newDiv = document.createElement("div");
+        newDiv.className = "QuestionElements";
+        newDiv.id = `elemSone${i}`
+        containerOne.appendChild(newDiv)
+    }
+      
+    for (let i = 0; i < 15; i++) {
+      const newDiv = document.createElement("div");
+      newDiv.className = "QuestionElements";
+      newDiv.id = `elemStwo${i}`
+      containerTwo.appendChild(newDiv)
+  }
+  for (let i = 0; i < 45; i++) {
+    const newDiv = document.createElement("div");
+    newDiv.className = "QuestionElements";
+    newDiv.id = `elemSthree${i}`
+    containerThree.appendChild(newDiv)
+}
  
-      
-
-      
-      
 
 });
 
