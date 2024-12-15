@@ -19,8 +19,8 @@ let thirdArray = [];
 let numbers = [];
 let countNumber = 0
 let videoNumb = 65
-let point = "one";
-let begining = 0;
+let right = 0;
+let turn = 1;
 
 
 
@@ -112,7 +112,7 @@ theForm.addEventListener('submit' , (event)=>{
   const theValue = myInput.value;
   //......................................................................................
   if (theValue == "yes") {
-
+    
     /////////////////////////////////////////////////////////////////////////////////
 
     rightAnswer.style.zIndex = "4"
@@ -131,23 +131,40 @@ theForm.addEventListener('submit' , (event)=>{
      videoQuestion.src = `./questions/question${numbers[countNumber]}.mp4`
      
       })
+     
       
       if (countNumber < 4) {
         const pass = document.getElementById(`elemSone${countNumber}`);
         const pass2 = document.getElementById(`elemSone${countNumber + 1}`);
         
-      pass.style.backgroundColor = "red"
+        
+          pass.style.backgroundColor = "red"
+        
+      
      
       if (countNumber < 4) {
         pass2.style.border = "2px solid green"
         pass.style.border = "1px solid black"
       }
       
-      countNumber ++
+      
+      
+        countNumber ++
+        right ++ 
+        console.log(turn)
+        console.log(right)
+        console.log(countNumber)
+      
       } else {
         
         const passPrev = document.getElementById(`elemSone${countNumber}`);
-        passPrev.style.backgroundColor = "red"
+        
+        
+          passPrev.style.backgroundColor = "red"
+        
+
+ 
+        
         passPrev.style.border = "1px solid black"
         countNumber = 0
         const pass = document.getElementById(`elemSone${countNumber}`);
@@ -156,11 +173,24 @@ theForm.addEventListener('submit' , (event)=>{
 
 
 
-        pass.style.backgroundColor = "red"
+        if (countNumber > 0) {
+          passPrev.style.backgroundColor = "red"
+        }
         pass.style.border = "2px solid green"
         
-        console.log("151")
-        console.log(numbers)
+        
+        right++
+        countNumber = 0;
+        console.log( "turn"+turn)
+        console.log("right"+right)
+        console.log("countnumber"+countNumber)
+      }
+      if (turn == 1 && right == 5) {
+        turn = 2
+        right = 0;
+        const pass = document.getElementById(`elemSone${countNumber}`);
+    pass.style.border = "1px solid black"
+        countNumber = 0
       }
 
       
@@ -209,9 +239,13 @@ theForm.addEventListener('submit' , (event)=>{
     
     
      
-      if (countNumber < 5) {
-        console.log(numbers)
-      } else {
+      if (countNumber < 5) { 
+
+        console.log( "turn"+turn)
+        console.log("right"+right)
+        console.log("countnumber"+countNumber)
+
+} else {
         const pass = document.getElementById(`elemSone${countNumber}`);
         pass.style.border = "2px solid green"
         countNumber = 0
