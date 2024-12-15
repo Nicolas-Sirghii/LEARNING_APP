@@ -20,6 +20,7 @@ let numbers = [];
 let countNumber = 0
 let videoNumb = 65
 let point = "one";
+let begining = 0;
 
 
 
@@ -130,23 +131,35 @@ theForm.addEventListener('submit' , (event)=>{
      videoQuestion.src = `./questions/question${numbers[countNumber]}.mp4`
      
       })
-      if (countNumber < videoNumb -1) { 
-        countNumber ++
-      } else {
-        countNumber = 0
+      
+      if (countNumber < 4) {
+        const pass = document.getElementById(`elemSone${countNumber}`);
+        const pass2 = document.getElementById(`elemSone${countNumber + 1}`);
+        
+      pass.style.backgroundColor = "red"
+     
+      if (countNumber < 4) {
+        pass2.style.border = "2px solid green"
+        pass.style.border = "1px solid black"
       }
       
-      if (countNumber < 5) {
-        const pass = document.getElementById(`elemSone${countNumber-1}`);
-      pass.style.backgroundColor = "red"
-      pass.style.border = "2px solid green"
-
-        console.log(numbers)
+      countNumber ++
       } else {
-        const pass = document.getElementById(`elemSone${countNumber-1}`);
+        
+        const passPrev = document.getElementById(`elemSone${countNumber}`);
+        passPrev.style.backgroundColor = "red"
+        passPrev.style.border = "1px solid black"
+        countNumber = 0
+        const pass = document.getElementById(`elemSone${countNumber}`);
+        const pass2 = document.getElementById(`elemSone${countNumber + 1}`);
+        
+
+
+
         pass.style.backgroundColor = "red"
         pass.style.border = "2px solid green"
-        countNumber = 0
+        
+        console.log("151")
         console.log(numbers)
       }
 
@@ -156,15 +169,25 @@ theForm.addEventListener('submit' , (event)=>{
     ////////////////////////////////////////////////////////////////////////////////////
   }else{
 
-   
-
-
-    ////////////////////////////////////////////////////////////////////////////////////
-    if (countNumber < videoNumb -1) {
+    if (countNumber < 4) { 
       countNumber ++
-    } else {
+      const passPrev = document.getElementById(`elemSone${countNumber-1}`);
+    const pass = document.getElementById(`elemSone${countNumber}`);
+    passPrev.style.border = "1px solid black"
+      pass.style.border = "2px solid green"
+      
+    }else{
+      
       countNumber = 0
+      const passPrev = document.getElementById(`elemSone${4}`);
+      const pass = document.getElementById(`elemSone${countNumber}`);
+      passPrev.style.border = "1px solid black"
+        pass.style.border = "2px solid green"
+        
     }
+   
+    ////////////////////////////////////////////////////////////////////////////////////
+   
     wrongAnswer.style.zIndex = "4"
     setTimeout(() => {
       wrongAnswer.style.zIndex = "-1"
@@ -182,13 +205,14 @@ theForm.addEventListener('submit' , (event)=>{
     information.style.zIndex = '3';
     })
 
-    const pass = document.getElementById(`elemSone${countNumber-1}`);
-      pass.style.border = "2px solid green"
-
+    
+    
+    
+     
       if (countNumber < 5) {
         console.log(numbers)
       } else {
-        const pass = document.getElementById(`elemSone${countNumber-1}`);
+        const pass = document.getElementById(`elemSone${countNumber}`);
         pass.style.border = "2px solid green"
         countNumber = 0
         console.log(numbers)
@@ -262,7 +286,9 @@ learnRandom.addEventListener('click',() => {
     newDiv.id = `elemSthree${i}`
     containerThree.appendChild(newDiv)
 }
- 
+
+const pass = document.getElementById(`elemSone${countNumber}`);
+  pass.style.border = "2px solid green"
 
 });
 
