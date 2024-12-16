@@ -10,6 +10,7 @@ const myInput = document.getElementById('myInput');
 const containerOne = document.getElementById('containerOne');
 const containerTwo = document.getElementById('containerTwo');
 const containerThree = document.getElementById('containerThree');
+const theEnd = document.getElementById('theEnd');
 
 
 
@@ -17,7 +18,8 @@ let firstArray = [];
 let secondArray = [];
 let thirdArray = [];
 let numbers = [];
-let countNumber = 0
+let countNumber = 0;
+let stopNumber = 4;
 let videoNumb = 65
 let right = 0;
 let turn = 1;
@@ -103,8 +105,8 @@ const getSimpleRandom = (n)=>{
       [arr[i], arr[j]] = [arr[j], arr[i]];  // Swap arr[i] and arr[j]
   }
   firstArray = arr.slice(0, 5);   // Index 0 to 4
-  secondArray = arr.slice(6, 21);  // Index 5 to 9
-  thirdArray = arr.slice(22, 67); // Index 10 to 29
+  secondArray = arr.slice(5, 20);  // Index 5 to 9
+  thirdArray = arr.slice(20, 70); // Index 10 to 29
 };
 
 theForm.addEventListener('submit' , (event)=>{
@@ -112,7 +114,7 @@ theForm.addEventListener('submit' , (event)=>{
   const theValue = myInput.value;
   //......................................................................................
   if (theValue == "yes") {
-    
+   
     /////////////////////////////////////////////////////////////////////////////////
 
     rightAnswer.style.zIndex = "4"
@@ -130,89 +132,287 @@ theForm.addEventListener('submit' , (event)=>{
       videoQuestion.style.zIndex = '3';
      videoQuestion.src = `./questions/question${numbers[countNumber]}.mp4`
      
+     
       })
      
       
-      if (countNumber < 4) {
+      if (countNumber < stopNumber) {
+
+        
         const pass = document.getElementById(`elemSone${countNumber}`);
         const pass2 = document.getElementById(`elemSone${countNumber + 1}`);
+
+        let pprr = pass
+        let ttaa = pass2
+
+
+        const pass11 = document.getElementById(`elemStwo${countNumber}`);
+        const pass22 = document.getElementById(`elemStwo${countNumber + 1}`);
+
+        const pass3 = document.getElementById(`elemSthree${countNumber}`);
+        const pass33 = document.getElementById(`elemSthree${countNumber + 1}`);
+
+        if (turn == 2) {
+          pprr = pass11
+          ttaa = pass22
+        }
+        if (turn == 3) {
+          pprr = pass3
+          ttaa = pass33
+        }
+
+
         
         
-          pass.style.backgroundColor = "red"
+        pprr.style.backgroundColor = "red"
         
       
      
-      if (countNumber < 4) {
-        pass2.style.border = "2px solid green"
-        pass.style.border = "1px solid black"
+      if (countNumber < stopNumber) {
+        ttaa.style.border = "2px solid green"
+        pprr.style.border = "1px solid black"
       }
       
       
       
         countNumber ++
         right ++ 
-        console.log(turn)
-        console.log(right)
-        console.log(countNumber)
       
       } else {
+        if (turn == 2) {
+          numbers = secondArray
+          stopNumber = 14;
+        }
+        if (turn == 3) {
+          numbers = thirdArray
+          stopNumber = 44
+        }
         
         const passPrev = document.getElementById(`elemSone${countNumber}`);
+        const passPrev1 = document.getElementById(`elemStwo${countNumber}`);
+        const passPrev2 = document.getElementById(`elemSthree${countNumber}`);
+
+        let ppprrrev = passPrev;
+
+        if (turn == 2) {
+          ppprrrev = passPrev1
+        }
+        if (turn == 3) {
+          ppprrrev = passPrev2
+        }
+
         
         
-          passPrev.style.backgroundColor = "red"
+        ppprrrev.style.backgroundColor = "red"
         
 
  
         
-        passPrev.style.border = "1px solid black"
+        ppprrrev.style.border = "1px solid black"
         countNumber = 0
         const pass = document.getElementById(`elemSone${countNumber}`);
-        const pass2 = document.getElementById(`elemSone${countNumber + 1}`);
+        
+
+        let pprr = pass
+        
+
+
+        const pass11 = document.getElementById(`elemStwo${countNumber}`);
+        
+
+        const pass3 = document.getElementById(`elemSthree${countNumber}`);
+        
+
+        if (turn == 2) {
+          pprr = pass11
+          
+        }
+        if (turn == 3) {
+          pprr = pass3
+          
+        }
         
 
 
 
         if (countNumber > 0) {
-          passPrev.style.backgroundColor = "red"
+          ppprrrev.style.backgroundColor = "red"
         }
-        pass.style.border = "2px solid green"
+        pprr.style.border = "2px solid green"
         
         
         right++
         countNumber = 0;
-        console.log( "turn"+turn)
-        console.log("right"+right)
-        console.log("countnumber"+countNumber)
+
       }
       if (turn == 1 && right == 5) {
         turn = 2
         right = 0;
         const pass = document.getElementById(`elemSone${countNumber}`);
-    pass.style.border = "1px solid black"
+        console.log("hello")
+        let pprr = pass
+        const pass11 = document.getElementById(`elemStwo${countNumber}`);
+        const pass3 = document.getElementById(`elemSthree${countNumber}`);
+        if (turn == 2) {
+          pprr = pass11  
+        }
+        if (turn == 3) {
+          pprr = pass3
+          
+        }
+        pprr.style.border = "1px solid black"
+        countNumber = 0
+        for (let i = 0; i < 5; i++) {
+         const bar =  document.getElementById(`elemSone${[i]}`);
+          bar.style.backgroundColor = "green"
+          bar.style.border = "1px solid black"
+        }
+        const pamm = document.getElementById(`elemStwo${0}`);
+        pamm.style.border = "2px solid green"
+      }
+      if (turn == 2 && right == 15) {
+        turn = 3
+        right = 0;
+        const pass = document.getElementById(`elemSone${countNumber}`);
+        let pprr = pass
+        const pass11 = document.getElementById(`elemStwo${countNumber}`);
+        const pass3 = document.getElementById(`elemSthree${countNumber}`);
+        if (turn == 2) {
+          pprr = pass11  
+        }
+        if (turn == 3) {
+          pprr = pass3
+          
+        }
+        pprr.style.border = "1px solid black"
+        countNumber = 0
+        for (let i = 0; i < 15; i++) {
+          const bar =  document.getElementById(`elemStwo${[i]}`);
+           bar.style.backgroundColor = "green"
+           bar.style.border = "1px solid black"
+         }
+         const pamm = document.getElementById(`elemSthree${0}`);
+         pamm.style.border = "2px solid green"
+      }
+      if (turn == 3 && right == 45) {
+        turn = 4
+        right = 0;
+        const pass = document.getElementById(`elemSone${countNumber}`);
+        let pprr = pass
+        const pass11 = document.getElementById(`elemStwo${countNumber}`);
+        const pass3 = document.getElementById(`elemSthree${countNumber}`);
+        if (turn == 2) {
+          pprr = pass11  
+        }
+        if (turn == 3) {
+          pprr = pass3
+          
+        }
+        pprr.style.border = "1px solid black"
         countNumber = 0
       }
 
+      if (turn == 2) {
+        numbers = secondArray
+        stopNumber = 14;
+      }
+      if (turn == 3) {
+        numbers = thirdArray
+        stopNumber = 44
+      }
       
-      
+     
+
+     videoAnswer.addEventListener('ended',() => {
+     
+     theEnd.style.zIndex = turn == 4 ? "5" : "-2"
+     
+    })
+
      
     ////////////////////////////////////////////////////////////////////////////////////
   }else{
 
-    if (countNumber < 4) { 
+    if (countNumber < stopNumber) { 
       countNumber ++
       const passPrev = document.getElementById(`elemSone${countNumber-1}`);
-    const pass = document.getElementById(`elemSone${countNumber}`);
-    passPrev.style.border = "1px solid black"
-      pass.style.border = "2px solid green"
+      const pass = document.getElementById(`elemSone${countNumber}`);
+
+      let rrarr = passPrev;
+      let lerro = pass ;
+
+      const passPrev1 = document.getElementById(`elemStwo${countNumber-1}`);
+      const pass1 = document.getElementById(`elemStwo${countNumber}`);
+
+      const passPrev2 = document.getElementById(`elemSthree${countNumber-1}`);
+      const pass2 = document.getElementById(`elemSthree${countNumber}`);
+      if (turn == 2) {
+        rrarr = passPrev1
+        lerro = pass1
+        
+      }
+      if (turn == 3) {
+        rrarr = passPrev2
+        lerro = pass2
+        
+      }
+
+
+
+
+
+
+
+
+
+
+
+      rrarr.style.border = "1px solid black"
+      lerro.style.border = "2px solid green"
       
     }else{
       
       countNumber = 0
-      const passPrev = document.getElementById(`elemSone${4}`);
+      const passPrev = document.getElementById(`elemSone${stopNumber}`);
       const pass = document.getElementById(`elemSone${countNumber}`);
-      passPrev.style.border = "1px solid black"
-        pass.style.border = "2px solid green"
+
+
+
+      let rrarr = passPrev;
+      let lerro = pass ;
+
+      const passPrev1 = document.getElementById(`elemStwo${countNumber-1}`);
+      const pass1 = document.getElementById(`elemStwo${countNumber}`);
+
+      const passPrev2 = document.getElementById(`elemSthree${countNumber-1}`);
+      const pass2 = document.getElementById(`elemSthree${countNumber}`);
+      if (turn == 2) {
+        rrarr = passPrev1
+        lerro = pass1
+        
+      }
+      if (turn == 3) {
+        rrarr = passPrev2
+        lerro = pass2
+        
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      rrarr.style.border = "1px solid black"
+      lerro.style.border = "2px solid green"
         
     }
    
@@ -233,21 +433,38 @@ theForm.addEventListener('submit' , (event)=>{
   videoQuestion.addEventListener('ended',() => {
     videoQuestion.style.zIndex = '-1';
     information.style.zIndex = '3';
+    
     })
 
     
     
     
      
-      if (countNumber < 5) { 
+      if (countNumber < stopNumber) { 
 
-        console.log( "turn"+turn)
-        console.log("right"+right)
-        console.log("countnumber"+countNumber)
+        
 
 } else {
         const pass = document.getElementById(`elemSone${countNumber}`);
-        pass.style.border = "2px solid green"
+
+        const pass1 = document.getElementById(`elemStwo${countNumber}`);
+
+        const pass2 = document.getElementById(`elemSthree${countNumber}`);
+       
+        let tramp = pass;
+
+        if (turn == 2) {
+          tramp = pass1
+        }
+
+        if (turn == 3) {
+          tramp = pass2
+        }
+
+
+
+
+        tramp.style.border = "2px solid green"
         countNumber = 0
         console.log(numbers)
       }
@@ -256,7 +473,19 @@ theForm.addEventListener('submit' , (event)=>{
     ////////////////////////////////////////////////////////////////////////////////////////////
   }
   myInput.value = ''
+
+  if (turn == 2) {
+    numbers = secondArray
+    stopNumber = 14;
+  }
+  if (turn == 3) {
+    numbers = thirdArray
+    stopNumber = 44
+  }
+
+  
 });
+
 //...........................................................................................
 
 

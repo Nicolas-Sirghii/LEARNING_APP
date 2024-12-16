@@ -103,3 +103,16 @@
   background-color: antiquewhite;
   margin-left: 3px;
 }
+#theEnd{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: green;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:  white;
+  font-size: 70px;
+  z-index: -2;
+}
