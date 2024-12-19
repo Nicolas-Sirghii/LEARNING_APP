@@ -29,69 +29,7 @@ let turn = 1;
 
 
 
-///==============================array function=============================================================
-const getMyarray = (n)=>{
-  
-  
-    const array1 = [];
-    const array2 = [];
-    const array3 = [];
-  
-    // First array: 1 to 3
-    for (let i = videoNumb-2; i <= videoNumb; i++) {
-      array1.push(i);
-    }
-  
-    // Second array: 4 to 9
-    for (let i = videoNumb - 8; i <= videoNumb; i++) {
-      array2.push(i);
-    }
-  
-    // Third array: 10 to 27
-    for (let i = videoNumb - 26; i <= videoNumb; i++) {
-      array3.push(i);
-    }
-  
-    let arr = [];
-    for (let i = 1; i <= videoNumb - 27; i++) {
-        arr.push(i);
-    }
-  
-    // Shuffle the array using Fisher-Yates algorithm
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));  // Random index between 0 and i
-        [arr[i], arr[j]] = [arr[j], arr[i]];  // Swap arr[i] and arr[j]
-    }
 
-
-
-    // Shuffle the input array using Fisher-Yates (Knuth) shuffle
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]]; // Swap elements
-  }
-  // Split the shuffled array into three parts
-  const array11 = arr.slice(0, 2);   // Index 0 to 4
-  const array22 = arr.slice(3, 9);  // Index 5 to 9
-  const array33 = arr.slice(10, 28); // Index 10 to 29
-
-  firstArray = [...array1 , ...array11];
-  secondArray = [...array2 , ...array22];
-  thirdArray = [...array3 , ...array33];
-
-  for (let i = firstArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [firstArray[i], firstArray[j]] = [firstArray[j], firstArray[i]]; // Swap elements
-  }
-  for (let i = secondArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [secondArray[i], secondArray[j]] = [secondArray[j], secondArray[i]]; // Swap elements
-  }
-  for (let i = thirdArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [thirdArray[i], thirdArray[j]] = [thirdArray[j], thirdArray[i]]; // Swap elements
-  }
-}
 ///==================================array function end=========================================================
 const getSimpleRandom = (n)=>{
   let arr = [];
@@ -559,3 +497,109 @@ const pass = document.getElementById(`elemSone${countNumber}`);
   
 
 
+const firstCont = document.getElementById('firstCont');
+const secondCont = document.getElementById('secondCont');
+const thirdCont = document.getElementById('thirdCont');
+const startButton = document.getElementById('start');
+const input = document.getElementById('input');
+
+
+
+// Create divs in each container
+function createDivs(container, array) {
+    array.forEach(num => {
+        const div = document.createElement('div');
+        div.dataset.index = num; // Assign index to each div
+        div.textContent = num; // Set the text content from the arrayf
+        container.appendChild(div);
+    });
+}
+
+createDivs(containerOne, firstArray);
+createDivs(containerTwo, secondArray);
+createDivs(containerThree, thirdArray);
+
+const containers = [
+    Array.from(containerOne.children),
+    Array.from(containerTwo.children),
+    Array.from(containerThree.children)
+];
+
+let currentContainerIndex = 0;
+let currentIndexInContainer = 0;
+let blueDivs = new Set();
+
+function highlightDiv(containerIndex, indexInContainer) {
+    containers.forEach(container => container.forEach(div => div.style.border = '1px solid white'));
+    const currentDiv = containers[containerIndex][indexInContainer];
+    currentDiv.style.border = '3px solid red';
+    console.log(`Div number: ${currentDiv.textContent}`);
+}
+
+function getNextDivIndex(containerIndex, indexInContainer) {
+    let container = containers[containerIndex];
+    let nextIndex = (indexInContainer + 1) % container.length;
+
+    while (blueDivs.has(container[nextIndex])) {
+        nextIndex = (nextIndex + 1) % container.length;
+        if (nextIndex === indexInContainer) {
+            // All divs in the current container are blue
+            return null;
+        }
+    }
+
+    return nextIndex;
+}
+
+simpleRandom.addEventListener('click', () => {
+    currentContainerIndex = 0;
+    currentIndexInContainer = 0;
+    blueDivs.clear();
+    highlightDiv(currentContainerIndex, currentIndexInContainer);
+});
+
+myInput.addEventListener('keypress', event => {
+    if (event.key === 'Enter') {
+        const value = myInput.value.trim();
+        myInput.value = '';
+
+        const currentContainer = containers[currentContainerIndex];
+        const currentDiv = currentContainer[currentIndexInContainer];
+
+        if (value.toLowerCase() === 'yes') {
+            currentDiv.style.backgroundColor = 'blue';
+            blueDivs.add(currentDiv);
+        }
+
+        let nextIndex = getNextDivIndex(currentContainerIndex, currentIndexInContainer);
+        if (nextIndex === null) {
+            // Move to the next container if all divs in the current container are blue
+            let allBlue = true;
+            for (let container of containers) {
+                if (container.some(div => !blueDivs.has(div))) {
+                    allBlue = false;
+                    break;
+                }
+            }
+
+            if (allBlue) {
+                console.log('The end');
+                return;
+            }
+
+            do {
+                currentContainerIndex = (currentContainerIndex + 1) % containers.length;
+            } while (containers[currentContainerIndex].every(div => blueDivs.has(div)));
+
+            // Mark the last div of the row blue before moving to the next row
+            currentDiv.style.backgroundColor = 'blue';
+            blueDivs.add(currentDiv);
+
+            currentIndexInContainer = 0;
+        } else {
+            currentIndexInContainer = nextIndex;
+        }
+
+        highlightDiv(currentContainerIndex, currentIndexInContainer);
+    }
+});

@@ -1,15 +1,78 @@
-*{
+body {
   margin: 0;
-  padding: 0;
-
+  background-color: #282c34;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
+
+#mainContainer {
+  
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    background-color: rgb(38, 171, 116);
+    z-index: -1;
+ 
+}
+
+.container {
+  width: 100%;
+  height: 33%;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.container div {
+  width: 1%;
+  height: 80%;
+  background-color: antiquewhite;
+  margin-left: 3px;
+}
+
+#controls {
+  position: absolute;
+  top: 10wh;
+  display: flex;
+  gap: 10px;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+#upper{
+  width: 100%;
+  height: 10vw;
+  background-color: black;
+}
+
 
 #VideoAnswer{
   position: absolute;
   top: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: -1;
 }
 #videoQuestion{
   width: 100vw;
@@ -17,14 +80,6 @@
   position: absolute;
   top: 0;
   z-index: -1;
-}
-#information{
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0px;
-  background-color: rgb(38, 171, 116);
-  z-index: 1;
 }
 #RightContainer{
   width: 100vw;
@@ -34,7 +89,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: -1;
+  z-index: -2;
 }
 #WrongContainer{
   width: 100vw;
@@ -44,10 +99,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: -1;
+  z-index: -2;
 }
-
-
 #wrongAnswer{
   width: 300px;
   height: 300px;
@@ -67,41 +120,6 @@
   align-items: center;
   justify-content: center;
  
-}
-#mainContainer{
-  width: 100%;
-  height: 10vw;
-  background-color: black;
-}
-#containerOne{
-  width: 100%;
-  height: 33%;
-  border: 1px solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#containerTwo{
-  width: 100%;
-  height: 33%;
-  border: 1px solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#containerThree{
-  width: 100%;
-  height: 33%;
-  border: 1px solid white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.QuestionElements{
-  width: 1%;
-  height: 80%;
-  background-color: antiquewhite;
-  margin-left: 3px;
 }
 #theEnd{
   position: absolute;
