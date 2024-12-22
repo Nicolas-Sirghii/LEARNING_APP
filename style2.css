@@ -36,6 +36,8 @@ body {
   height: 80%;
   background-color: antiquewhite;
   margin-left: 3px;
+  font-size: 13px;
+  color: black;
 }
 
 #controls {
@@ -132,5 +134,13 @@ button {
   justify-content: center;
   color:  white;
   font-size: 70px;
+  z-index: -2;
+}
+
+#videoPlayer{
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ bottom: 0;
   z-index: -2;
 }
