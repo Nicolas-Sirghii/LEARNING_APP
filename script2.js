@@ -131,7 +131,7 @@ const input = document.getElementById('input');
 const controls = document.getElementById("controls")
 const subbb = document.getElementById("form")
 const videoPlayer = document.getElementById('videoPlayer');
-
+const revew = document.getElementById("revew");
 
 
 
@@ -172,34 +172,43 @@ let finish = 0;
 
 function playVideosSequentially(videoList) {
 
-  let currentIndex = 0;
+  setTimeout(() => {
+    let currentIndex = 0;
 
-  const playNext = () => {
-    if (currentIndex < videoList.length) {
-      const videoSrc = `./answers/answer${videoList[currentIndex]}.mp4`;
-      videoPlayer.src = videoSrc;
-      videoPlayer.play();
-      currentIndex++;
+    const playNext = () => {
+      if (currentIndex < videoList.length) {
+        const videoSrc = `./answers/answer${videoList[currentIndex]}.mp4`;
+        videoPlayer.src = videoSrc;
+        videoPlayer.play();
+        currentIndex++;
+  
+        // Set up an event listener to play the next video after the current one ends
+        videoPlayer.onended = () => {
+          if (currentIndex < videoList.length) {
+            setTimeout(playNext, 1000); // 1-second delay
+          } else {
+            console.log("finish"); // Log "finish" after the last video
+            theEnd.style.zIndex = "4"
+          }
+        };
+      }
+    };
+  
+    playNext();
+  }, 2000);
+  revew.style.zIndex = "4"
+  setTimeout(() => {
+    revew.style.zIndex = "-1"
+  }, 2000);
 
-      // Set up an event listener to play the next video after the current one ends
-      videoPlayer.onended = () => {
-        if (currentIndex < videoList.length) {
-          setTimeout(playNext, 1000); // 1-second delay
-        } else {
-          console.log("finish"); // Log "finish" after the last video
-          theEnd.style.zIndex = "4"
-        }
-      };
-    }
-  };
-
-  playNext();
   
 
 
 }
 
+
 startButton.addEventListener('click', () => {
+  startButton.style.zIndex = "-2"
   currentContainerIndex = 0;
   currentIndexInContainer = 0;
   blueDivs.clear();
@@ -220,18 +229,22 @@ startButton.addEventListener('click', () => {
 });
 
 // Create divs in each container
-function createDivs(container, array) {
+function createDivs(container, array , a) {
+  
   array.forEach(num => {
+    
+    a ++
       const div = document.createElement('div');
       div.dataset.index = num; // Assign index to each div
+      div.id = `divplace${a}`
       div.textContent = num; // Set the text content from the array
       container.appendChild(div);
   });
 }
 
-createDivs(firstCont, firstArray);
-createDivs(secondCont, secondArray);
-createDivs(thirdCont, thirdArray);
+createDivs(firstCont, firstArray , 0);
+createDivs(secondCont, secondArray , 5);
+createDivs(thirdCont, thirdArray , 20);
 
 const containers = [
   Array.from(firstCont.children),
@@ -305,7 +318,7 @@ input.addEventListener('keypress', event => {
           
               videoAnswer.addEventListener('ended',() => {
 
-                  if (finish < 67) {
+                  if (finish < 66) {
                       videoAnswer.style.zIndex = '-1';
                       videoQuestion.style.zIndex = '3';
                      videoQuestion.src = `./questions/question${dd}.mp4`
