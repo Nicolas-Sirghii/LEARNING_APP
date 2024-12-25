@@ -1,4 +1,5 @@
 const answerdata = {
+  71: "b",
   70: "a",
   69: "a",
   68: "a",
@@ -118,7 +119,7 @@ thirdArray = combineAndShuffleArrays(thirdArrayRandom, thirdArrayFixed);
 };
 
 // Call the function
-generateRandomArrays(70);
+generateRandomArrays(Object.keys(answerdata).length);
 
 
 
@@ -160,7 +161,7 @@ let stopNumber = 4;
 let videoNumb = 65
 let right = 0;
 let turn = 1;
-let videoSequence = [  3, 43 , 33];
+let videoSequence = [];
 
 
 let finish = 0;
@@ -223,7 +224,8 @@ startButton.addEventListener('click', () => {
   blueDivs.clear();
   highlightDiv(currentContainerIndex, currentIndexInContainer);
  
-
+  console.log(Object.keys(answerdata).length)
+  
   videoQuestion.src = `./questions/question${dd}.mp4`
   videoQuestion.style.zIndex = '3';
    videoAnswer.style.zIndex = '-1';
