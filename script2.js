@@ -241,7 +241,20 @@ startButton.innerText = dd
    
     })
 });
+let hiee = "32.7%"
+let flet1 = 36.6
+let flet2 = 33.3
 
+let flet3 = 30
+let flet4 = 26.7
+let flet5 = 23.4
+
+let flet6 = 20.1
+let bro = 20.1
+let flet7 = 16.8
+let flet8 = 13.5
+let flet9 = 10.2
+let flet10 = 6.9
 
 // Create divs in each container
 function createDivs(container, array , a) {
@@ -253,8 +266,122 @@ function createDivs(container, array , a) {
       div.textContent = num
       div.style.color = 'transparent'
       div.dataset.index = num; // Assign index to each div
-      div.id = `divplace${a}`
-      div.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/15359/15359865.png')"
+      div.className = `divplace`
+      
+      div.style.width = "5.7%"
+      
+      div.style.position = "absolute"
+      div.style.display = "flex"
+      div.style.alignItems = "center"
+      div.style.justifyContent = "center"
+      div.style.backgroundSize = "contain"
+      
+    
+    
+     
+
+      if (a> 5 && a< 21) {
+        hiee = '35.7%'
+ 
+      }
+      if (a> 20 ) {
+        hiee = '23%'
+      }
+
+
+
+      if (a < 3) {
+          flet1 = flet1 + 6.7
+          div.style.top = '34%'
+          div.style.left = `${flet1}%`
+          div.style.height = '35.7%'
+          div.style.width = "5.7%"
+          
+       
+       
+      }
+      if (a>2 && a<6) {
+        
+        flet2 = flet2 + 6.7
+        div.style.top = "63.9%"
+        div.style.left = `${flet2}%`
+        div.style.height = hiee
+      }
+
+
+
+
+
+      if (a>5 && a<10) {
+        
+        flet3 = flet3 + 6.7
+        div.style.top = "-7%"
+        div.style.left = `${flet3}%`
+        div.style.height = hiee
+      }
+      if (a>9 && a<15) {
+        
+        flet4 = flet4 + 6.7
+        div.style.top = "26.5%"
+        div.style.left = `${flet4}%`
+        div.style.height = hiee
+      }
+      if (a>14 && a<21) {
+       
+        flet5 = flet5 + 6.7
+        div.style.top = "59%"
+        div.style.left = `${flet5}%`
+        div.style.height = hiee
+      }
+
+
+
+
+      if (a>20 && a<28) {
+        
+        flet6 = flet6 + 6.7
+        div.style.top = "-5%"
+        div.style.left = `${flet6}%`
+        div.style.height = hiee
+       
+      }
+      if (a>27 && a<36) {
+        
+        flet7 = flet7 + 6.7
+        div.style.top = "15.3%"
+        div.style.left = `${flet7}%`
+        div.style.height = hiee
+      
+      }
+      if (a>35 && a<45) {
+        
+        flet8 = flet8 + 6.7
+        div.style.top = "35.5%"
+        div.style.left = `${flet8}%`
+        div.style.height = hiee
+      }
+      if (a>44 && a<55) {
+     
+        flet9 = flet9 + 6.7
+        div.style.top = "56%"
+        div.style.left = `${flet9}%`
+        div.style.height = hiee
+      }
+      if (a>54) {
+        flet10 = flet10 + 6.7
+        div.style.top = "75.9%"
+        div.style.left = `${flet10}%`
+        div.style.height = hiee
+      }
+
+      
+     
+
+
+
+      
+      
+      
 
       container.appendChild(div);
       
@@ -430,7 +557,7 @@ input.addEventListener('keypress', event => {
           currentDiv.style.backgroundColor = 'blue';
           const goInside = document.createElement("div")
           goInside.id = "goInside"
-          goInside.style.backgroundImage = "url('https://e7.pngegg.com/pngimages/894/243/png-clipart-computer-icons-padlock-lock-unlock-black-and-white-security-thumbnail.png')"
+          goInside.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6L2q1S0Ng2RBPjfX5Coafctnz0SUYKUA0Xw&s')"
           currentDiv.appendChild(goInside)
 
 

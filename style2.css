@@ -6,33 +6,44 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  flex-direction: column;
-  align-items: center;
+  justify-content: baseline;
+  align-items: baseline;
+
   /* justify-content: center; */
   height: 100vh;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 #mainContainer {
-  
-    width: 100vw;
-    height: 100vw;
+  padding: 0;
+    width: 150vh;
+    height: 150vh;
     position: absolute;
     top: 0px;
-    background-image: url(hexagon.png);
+    
     background-size: contain;
     background-repeat: no-repeat;
-    background-color: green;
+   
     z-index: -1;
  
+}
+#backgroundInfo{
+  width: 100vw;
+  height: 140vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: black;
 }
 
 .container {
   width: 100%;
   height: 33%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  
   flex-wrap: wrap;
 }
 
@@ -46,42 +57,51 @@ body {
 }
 
 #controls {
-  top: 10wh;
-  display: flex;
-  gap: 10px;
+  
+  margin-left: 56vw;
+  margin-bottom: 40VW;
+  color: white;
   
 }
 #input{
-
+ 
   border: none;
   height: 4vw;
   text-align: center;
-  background-color: transparent;
+ opacity: 0.4;
   font-size: 3vw;
   color: white;
   outline: none;
+  margin: 0;
+  background-color:  transparent;
   
 }
-#input::placeholder{
-color: red;
-font-size: 1.4vw;
 
+.divplace{
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 5.7%;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/15359/15359865.png');
 }
 
 button {
   cursor: pointer;
   position: absolute;
-  width: 5.7vw; /* The width of the hexagon */
-    height: 6.5vw; /* Adjust the height for a proper hexagon */
+  width: 4vw; /* The width of the hexagon */
+    height: 4.5vw; /* Adjust the height for a proper hexagon */
     background-color: #4ddb34; /* Color of the hexagon */
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     top: 1vw;
-    left: 47.18%;
+    left: 47.8%;
     display: flex;
     align-items: center;
     justify-content: center;
     border: none;
-    font-size: 1vw;
+    font-size: 0.6vw;
 
 }
 .startStop{
@@ -254,310 +274,3 @@ margin: 0.3vh;
   margin-right: 15%;
 }
 
-#divplace65{
-  background-color: red;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-}
-#divplace1{
-  padding: 0;
-  width: 5.7%; /* The width of the hexagon */
-    height: 32.7%; /* Adjust the height for a proper hexagon */
-    
-    box-sizing: border-box;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 34%;
-    left: 43.5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 5px 55px 15px rgba(0, 0, 0, 0.5);
-    background-size: contain;
-    background-repeat: no-repeat;
-    
-}
-#divplace2{
-  width: 5.7%; /* The width of the hexagon */
-    height: 32.7%; /* Adjust the height for a proper hexagon */
-    box-sizing: border-box;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 34%;
-    left: 50.2%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    
-}
-#divplace3{
-  width: 5.7%; /* The width of the hexagon */
-    height: 32.7%; /* Adjust the height for a proper hexagon */
-    box-sizing: border-box;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 63.9%;
-    left: 40.2%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace4{
-  width: 5.7%; /* The width of the hexagon */
-    height: 32.7%; /* Adjust the height for a proper hexagon */
-    box-sizing: border-box;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 63.9%;
-    left: 47%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    
-}
-#divplace5{
-  width: 5.7%; /* The width of the hexagon */
-    height: 32.7%; /* Adjust the height for a proper hexagon */
-    box-sizing: border-box;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 63.9%;
-    left: 53.6%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace6{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color: #2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: -7%;
-    left: 36.87%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace7{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color: #2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: -7%;
-    left: 43.6%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace8{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color: #2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: -7%;
-    left: 50.3%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    
-}
-#divplace9{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color: #2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: -7%;
-    left: 57%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace10{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color:#2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 26.5%;
-    left: 33.5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace11{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color: #2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 26.5%;
-    left: 40.2%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace12{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color:#2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 26.5%;
-    left: 46.9%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace13{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color: #2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 26.5%;
-    left: 53.6%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace14{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color: #2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 26.5%;
-    left: 60.3%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace15{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color: #2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 59%;
-    left: 30.2%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace16{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color: #2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 59%;
-    left: 36.9%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace17{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color:#2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 59%;
-    left: 43.6%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace18{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color: #2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 59%;
-    left: 50.3%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace19{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color: #2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 59%;
-    left: 57%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace20{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color: #2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 59%;
-    left: 63.7%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-#divplace21{
-  width: 5.7%; /* The width of the hexagon */
-    height: 35.7%; /* Adjust the height for a proper hexagon */
-    background-color:#2872a3; /* Color of the hexagon */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    position: absolute;
-    top: 63.9%;
-    left: 36.2%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
