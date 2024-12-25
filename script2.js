@@ -162,7 +162,7 @@ let stopNumber = 4;
 let videoNumb = 65
 let right = 0;
 let turn = 1;
-let videoSequence = [  3, 43 , 33];
+let videoSequence = [ ];
 
 
 let finish = 0;
@@ -417,6 +417,7 @@ const highlightDiv = (containerIndex, indexInContainer) => {
  
   dd = currentDiv.textContent
   prev.push(answerdata[dd])
+  aa.push(dd)
   currentDiv.style.backgroundImage = "url('https://c8.alamy.com/comp/H33XCA/target-black-isolated-crosshair-target-with-red-center-vector-illustration-H33XCA.jpg')"
   
   
@@ -472,6 +473,7 @@ let theWord = "word"
 input.addEventListener('keypress', event => {
   
   if (event.key === 'Enter') {
+   
       event.preventDefault()
       const value = input.value.trim();
       input.value = '';
@@ -528,6 +530,8 @@ input.addEventListener('keypress', event => {
                  });
       
            } 
+           
+           
           let nextIndex = getNextDivIndex(currentContainerIndex, currentIndexInContainer);
       if (nextIndex === null) {
           // Move to the next container if all divs in the current container are blue
@@ -557,6 +561,7 @@ input.addEventListener('keypress', event => {
           currentDiv.style.backgroundColor = 'blue';
           const goInside = document.createElement("div")
           goInside.id = "goInside"
+          aa.push(answerdata[dd])
           goInside.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6L2q1S0Ng2RBPjfX5Coafctnz0SUYKUA0Xw&s')"
           currentDiv.appendChild(goInside)
 
@@ -602,6 +607,7 @@ input.addEventListener('keypress', event => {
               }
             }
             addUniqueNumber(videoSequence , aa[aa.length-2] )
+            
         
             
             videoQuestion.style.zIndex = '3';
