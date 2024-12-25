@@ -153,13 +153,14 @@ const videoFolder = './answers/';
 
 
 
+
 let numbers = [];
 let countNumber = 0;
 let stopNumber = 4;
 let videoNumb = 65
 let right = 0;
 let turn = 1;
-let videoSequence = [];
+let videoSequence = [  3, 43 , 33];
 
 
 let finish = 0;
@@ -195,11 +196,19 @@ function playVideosSequentially(videoList) {
     };
   
     playNext();
-  }, 2000);
+  }, 10000);
   revew.style.zIndex = "4"
+  let procents =  100 -((65 / 100) * videoSequence.length )  ;
+  let trezz = `<div id="revweList"> <p id="reviewTitle">REVEW  <span>${videoSequence.length}</span></p> <div> <p id = "procent"> ${ Math.round(procents)} %  <p/>`
+  videoSequence.forEach(element => {
+    trezz = trezz + `<p class="mistakes"><span>${element}.</span> ${answerdata[element]}</p> ` 
+    
+  });
+  trezz = trezz + "<div/></div>"
+  revew.innerHTML = trezz
   setTimeout(() => {
     revew.style.zIndex = "-1"
-  }, 2000);
+  }, 10000);
 
   
 
@@ -224,9 +233,10 @@ startButton.addEventListener('click', () => {
     videoQuestion.style.zIndex = '-4';
     information.style.zIndex = '1';
    controls.style.zIndex = "3"
-    
+   
     })
 });
+
 
 // Create divs in each container
 function createDivs(container, array , a) {
@@ -330,6 +340,9 @@ input.addEventListener('keypress', event => {
                       theEnd.style.zIndex = "4"
                     }
                   }
+
+
+                 
                 
                  });
       
