@@ -1,12 +1,16 @@
+
+
 body {
   margin: 0;
   color: white;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   height: 100vh;
+  box-sizing: border-box;
 }
 
 #mainContainer {
@@ -45,8 +49,24 @@ body {
   top: 10wh;
   display: flex;
   gap: 10px;
+  
 }
+#input{
 
+  border: none;
+  height: 4vw;
+  text-align: center;
+  background-color: transparent;
+  font-size: 3vw;
+  color: white;
+  outline: none;
+  
+}
+#input::placeholder{
+color: red;
+font-size: 1.4vw;
+
+}
 
 button {
   cursor: pointer;
@@ -61,7 +81,14 @@ button {
     align-items: center;
     justify-content: center;
     border: none;
+    font-size: 1vw;
 
+}
+.startStop{
+  z-index: -2;
+  background-color: rgb(0, 229, 255);
+  font-size: 4vw;
+  color: white;
 }
 
 
@@ -115,7 +142,14 @@ margin: 0.3vh;
   margin: 0.3vh;
   }
   
-
+  .target{
+    background-color: rgb(117, 63, 63);
+    
+  }
+  .tarDivPass{
+    background-color: aquamarine;
+  }
+  
 
 
 
@@ -211,15 +245,28 @@ margin: 0.3vh;
   font-size: 70px;
   z-index: -2;
 }
+#goInside{
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat; 
+  height: 100%;
+  width: 100%;
+  margin-right: 15%;
+}
 
 #divplace65{
   background-color: red;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 #divplace1{
+  padding: 0;
   width: 5.7%; /* The width of the hexagon */
     height: 32.7%; /* Adjust the height for a proper hexagon */
-    background-color: #3498db; /* Color of the hexagon */
+    
+    box-sizing: border-box;
+   display: flex;
+   align-items: center;
+   justify-content: center;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     position: absolute;
     top: 34%;
@@ -228,12 +275,14 @@ margin: 0.3vh;
     align-items: center;
     justify-content: center;
     box-shadow: 5px 55px 15px rgba(0, 0, 0, 0.5);
+    background-size: contain;
+    background-repeat: no-repeat;
     
 }
 #divplace2{
   width: 5.7%; /* The width of the hexagon */
     height: 32.7%; /* Adjust the height for a proper hexagon */
-    background-color: #3498db; /* Color of the hexagon */
+    box-sizing: border-box;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     position: absolute;
     top: 34%;
@@ -241,12 +290,14 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     
 }
 #divplace3{
   width: 5.7%; /* The width of the hexagon */
     height: 32.7%; /* Adjust the height for a proper hexagon */
-    background-color: #3498db; /* Color of the hexagon */
+    box-sizing: border-box;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     position: absolute;
     top: 63.9%;
@@ -254,12 +305,13 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace4{
   width: 5.7%; /* The width of the hexagon */
     height: 32.7%; /* Adjust the height for a proper hexagon */
-    background-color: #3498db; /* Color of the hexagon */
+    box-sizing: border-box;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     position: absolute;
     top: 63.9%;
@@ -267,12 +319,14 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     
 }
 #divplace5{
   width: 5.7%; /* The width of the hexagon */
     height: 32.7%; /* Adjust the height for a proper hexagon */
-    background-color: #3498db; /* Color of the hexagon */
+    box-sizing: border-box;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     position: absolute;
     top: 63.9%;
@@ -280,7 +334,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace6{
   width: 5.7%; /* The width of the hexagon */
@@ -293,7 +348,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace7{
   width: 5.7%; /* The width of the hexagon */
@@ -306,7 +362,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace8{
   width: 5.7%; /* The width of the hexagon */
@@ -319,6 +376,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     
 }
 #divplace9{
@@ -332,7 +391,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace10{
   width: 5.7%; /* The width of the hexagon */
@@ -345,7 +405,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace11{
   width: 5.7%; /* The width of the hexagon */
@@ -358,7 +419,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace12{
   width: 5.7%; /* The width of the hexagon */
@@ -371,7 +433,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace13{
   width: 5.7%; /* The width of the hexagon */
@@ -384,7 +447,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace14{
   width: 5.7%; /* The width of the hexagon */
@@ -397,7 +461,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace15{
   width: 5.7%; /* The width of the hexagon */
@@ -410,7 +475,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace16{
   width: 5.7%; /* The width of the hexagon */
@@ -423,7 +489,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace17{
   width: 5.7%; /* The width of the hexagon */
@@ -436,7 +503,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace18{
   width: 5.7%; /* The width of the hexagon */
@@ -449,7 +517,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace19{
   width: 5.7%; /* The width of the hexagon */
@@ -462,7 +531,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace20{
   width: 5.7%; /* The width of the hexagon */
@@ -475,7 +545,8 @@ margin: 0.3vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #divplace21{
   width: 5.7%; /* The width of the hexagon */

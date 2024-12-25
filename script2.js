@@ -117,9 +117,10 @@ firstArray = combineAndShuffleArrays(firstArrayRandom, firstArrayFixed);
 secondArray = combineAndShuffleArrays(secondArrayRandom, secondArrayFixed);
 thirdArray = combineAndShuffleArrays(thirdArrayRandom, thirdArrayFixed);
 };
-
+const lenra = Object.keys(answerdata).length;
 // Call the function
-generateRandomArrays(Object.keys(answerdata).length);
+generateRandomArrays(lenra);
+
 
 
 
@@ -161,11 +162,11 @@ let stopNumber = 4;
 let videoNumb = 65
 let right = 0;
 let turn = 1;
-let videoSequence = [];
+let videoSequence = [  3, 43 , 33];
 
 
 let finish = 0;
-
+let dd = firstArray[0]
 
 
 
@@ -218,20 +219,22 @@ function playVideosSequentially(videoList) {
 
 
 startButton.addEventListener('click', () => {
-  startButton.style.zIndex = "-2"
+  startButton.className = "startStop"
   currentContainerIndex = 0;
   currentIndexInContainer = 0;
   blueDivs.clear();
   highlightDiv(currentContainerIndex, currentIndexInContainer);
  
-  console.log(Object.keys(answerdata).length)
-  
+
   videoQuestion.src = `./questions/question${dd}.mp4`
   videoQuestion.style.zIndex = '3';
    videoAnswer.style.zIndex = '-1';
    information.style.zIndex = '-1';
    
    videoQuestion.addEventListener('ended',() => {
+  
+  
+startButton.innerText = dd
     videoQuestion.style.zIndex = '-4';
     information.style.zIndex = '1';
    controls.style.zIndex = "3"
@@ -247,10 +250,19 @@ function createDivs(container, array , a) {
     
     a ++
       const div = document.createElement('div');
+      div.textContent = num
+      div.style.color = 'transparent'
       div.dataset.index = num; // Assign index to each div
       div.id = `divplace${a}`
-      div.textContent = num; // Set the text content from the array
+      div.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/15359/15359865.png')"
+
       container.appendChild(div);
+      
+      
+     
+
+      
+      
   });
 }
 
@@ -267,16 +279,19 @@ const containers = [
 let currentContainerIndex = 0;
 let currentIndexInContainer = 0;
 let blueDivs = new Set();
-let dd = 0
+
 let aa = [];
 let prev = []
 const highlightDiv = (containerIndex, indexInContainer) => {
-  containers.forEach(container => container.forEach(div => div.style.border = '1px solid white'));
+  containers.forEach(container => container.forEach(div => div.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/15359/15359865.png')"
+    
+  ));
   const currentDiv = containers[containerIndex][indexInContainer];
+ 
   dd = currentDiv.textContent
-  aa.push(dd)
   prev.push(answerdata[dd])
-  currentDiv.style.border = '3px solid red';
+  currentDiv.style.backgroundImage = "url('https://c8.alamy.com/comp/H33XCA/target-black-isolated-crosshair-target-with-red-center-vector-illustration-H33XCA.jpg')"
+  
   
 }
 
@@ -284,13 +299,41 @@ function getNextDivIndex(containerIndex, indexInContainer) {
   let container = containers[containerIndex];
   let nextIndex = (indexInContainer + 1) % container.length;
 
-  while (blueDivs.has(container[nextIndex])) {
+  let bra = 0
+  if (containerIndex == 0) {
+    bra = 5
+  }
+  if (containerIndex == 1) {
+    bra = 15
+  }
+  if (containerIndex == 2) {
+    bra = 47
+  }
+  if (right == bra) {
+    while (blueDivs.has(container[nextIndex])) {
       nextIndex = (nextIndex + 1) % container.length;
       if (nextIndex === indexInContainer) {
-          // All divs in the current container are blue
-          return null;
-      }
+        // All divs in the current container are blue
+        
+        return null;
+    
+      
   }
+    right = 0
+  }
+  }else{
+    while (blueDivs.has(container[nextIndex])) {
+      nextIndex = (nextIndex + 1) % container.length;
+      
+    
+      
+  }
+
+  }
+
+ 
+  
+
 
   return nextIndex;
 }
@@ -312,8 +355,15 @@ input.addEventListener('keypress', event => {
 
            
       if (value.toLowerCase() == answerdata[dd]) {
+        right ++
           currentDiv.style.backgroundColor = 'blue';
+          const goInside = document.createElement("div")
+          goInside.id = "goInside"
+             goInside.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6L2q1S0Ng2RBPjfX5Coafctnz0SUYKUA0Xw&s')"
+          currentDiv.appendChild(goInside)
+          startButton.innerText = dd
           blueDivs.add(currentDiv);
+         
 
           rightAnswer.style.zIndex = "4"
           setTimeout(() => {
@@ -330,7 +380,7 @@ input.addEventListener('keypress', event => {
 
           
               videoAnswer.addEventListener('ended',() => {
-
+                   startButton.innerText = dd
                   if (finish < 66) {
                       videoAnswer.style.zIndex = '-1';
                       videoQuestion.style.zIndex = '3';
@@ -376,7 +426,33 @@ input.addEventListener('keypress', event => {
           } while (containers[currentContainerIndex].every(div => blueDivs.has(div)));
 
           // Mark the last div of the row blue before moving to the next row
+          startButton.innerText = dd
           currentDiv.style.backgroundColor = 'blue';
+          const goInside = document.createElement("div")
+          goInside.id = "goInside"
+          goInside.style.backgroundImage = "url('https://e7.pngegg.com/pngimages/894/243/png-clipart-computer-icons-padlock-lock-unlock-black-and-white-security-thumbnail.png')"
+          currentDiv.appendChild(goInside)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           blueDivs.add(currentDiv);
 
           currentIndexInContainer = 0;
@@ -406,6 +482,8 @@ input.addEventListener('keypress', event => {
             information.style.zIndex = '-1';
               
             videoQuestion.addEventListener('ended',() => {
+              startButton.innerText = dd
+              
               videoQuestion.style.zIndex = '-1';
               information.style.zIndex = '3';
               controls.style.zIndex = "4"
