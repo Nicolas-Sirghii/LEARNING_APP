@@ -11,8 +11,8 @@ body {
 
 #mainContainer {
   
-    width: 750px;
-    height: 750px;
+    width: 100vw;
+    height: 100vw;
     position: absolute;
     top: 0px;
     background-image: url(hexagon.png);
@@ -26,7 +26,6 @@ body {
 .container {
   width: 100%;
   height: 33%;
-  border: 1px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,20 +42,25 @@ body {
 }
 
 #controls {
-  position: absolute;
   top: 10wh;
   display: flex;
   gap: 10px;
 }
 
-input, button {
-  padding: 10px;
-  font-size: 16px;
-}
 
 button {
   cursor: pointer;
   position: absolute;
+  width: 5.7vw; /* The width of the hexagon */
+    height: 6.5vw; /* Adjust the height for a proper hexagon */
+    background-color: #4ddb34; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    top: 1vw;
+    left: 47.18%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
 
 }
 
@@ -66,8 +70,11 @@ button {
   position: relative;
 }
 #secondCont{
-  border: 2px solid red;
-  height: 20%;
+  height: 18%;
+  position: relative;
+}
+#thirdCont{
+  height: 29%;
   position: relative;
 }
 #revweList {
@@ -216,7 +223,7 @@ margin: 0.3vh;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     position: absolute;
     top: 34%;
-    left: 43.6%;
+    left: 43.5%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -230,7 +237,7 @@ margin: 0.3vh;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     position: absolute;
     top: 34%;
-    left: 50.3%;
+    left: 50.2%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -243,7 +250,7 @@ margin: 0.3vh;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     position: absolute;
     top: 63.9%;
-    left: 40.3%;
+    left: 40.2%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -269,7 +276,7 @@ margin: 0.3vh;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     position: absolute;
     top: 63.9%;
-    left: 53.7%;
+    left: 53.6%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -277,12 +284,207 @@ margin: 0.3vh;
 }
 #divplace6{
   width: 5.7%; /* The width of the hexagon */
-    height: 32.7%; /* Adjust the height for a proper hexagon */
-    background-color: #3498db; /* Color of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color: #2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: -7%;
+    left: 36.87%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace7{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color: #2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: -7%;
+    left: 43.6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace8{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color: #2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: -7%;
+    left: 50.3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace9{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color: #2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: -7%;
+    left: 57%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace10{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color:#2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: 26.5%;
+    left: 33.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace11{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color: #2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: 26.5%;
+    left: 40.2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace12{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color:#2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: 26.5%;
+    left: 46.9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace13{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color: #2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: 26.5%;
+    left: 53.6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace14{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color: #2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: 26.5%;
+    left: 60.3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace15{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color: #2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: 59%;
+    left: 30.2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace16{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color: #2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: 59%;
+    left: 36.9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace17{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color:#2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: 59%;
+    left: 43.6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace18{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color: #2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: 59%;
+    left: 50.3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace19{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color: #2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: 59%;
+    left: 57%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace20{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color: #2872a3; /* Color of the hexagon */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    position: absolute;
+    top: 59%;
+    left: 63.7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#divplace21{
+  width: 5.7%; /* The width of the hexagon */
+    height: 35.7%; /* Adjust the height for a proper hexagon */
+    background-color:#2872a3; /* Color of the hexagon */
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     position: absolute;
     top: 63.9%;
-    left: 36.3%;
+    left: 36.2%;
     display: flex;
     align-items: center;
     justify-content: center;

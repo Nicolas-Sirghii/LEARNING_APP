@@ -320,10 +320,11 @@ input.addEventListener('keypress', event => {
       
                finish ++
 
-
+          
           videoAnswer.src = `./answers/answer${dd}.mp4`
           videoAnswer.style.zIndex = '3';
           information.style.zIndex = '-1';
+         
 
           
               videoAnswer.addEventListener('ended',() => {
@@ -331,6 +332,7 @@ input.addEventListener('keypress', event => {
                   if (finish < 66) {
                       videoAnswer.style.zIndex = '-1';
                       videoQuestion.style.zIndex = '3';
+                      information.style.zIndex = "-1"
                      videoQuestion.src = `./questions/question${dd}.mp4`
                   } else {
                     if (videoSequence.length > 0) {
@@ -409,7 +411,7 @@ input.addEventListener('keypress', event => {
               })
           }  
       
-     
+     myInput.style.zIndex = "-1"
   }
   
 });
