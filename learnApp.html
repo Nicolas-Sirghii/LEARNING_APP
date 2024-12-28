@@ -337,16 +337,7 @@ margin: 0.3vh;
 <div id="theEnd">THE END</div>
 <script>
   const answerdata = {
-  80: "rotkraut",
-  79: "mittagsangebot",
-  78: "offnungszeiten",
-  77: "ich hab lust auf",
-  76: "keine Lust",
-  75: "aufwachen",
-  74: "ausschlafen",
-  73: "aufraumen",
-  72: "ferienwoche",
-  71: "gegen",
+  
   70: "a",
   69: "a",
   68: "a",
@@ -520,9 +511,7 @@ let dd = firstArray[0]
 
 
 
-
 function playVideosSequentially(videoList) {
-
   setTimeout(() => {
     let currentIndex = 0;
 
@@ -530,41 +519,44 @@ function playVideosSequentially(videoList) {
       if (currentIndex < videoList.length) {
         const videoSrc = `./answers/answer${videoList[currentIndex]}.mp4`;
         videoPlayer.src = videoSrc;
-        videoPlayer.play();
+
+        // Wait until the video metadata is loaded before trying to play
+        videoPlayer.onloadedmetadata = () => {
+          videoPlayer.play().catch(error => {
+            console.error("Error playing video:", error);
+          });
+        };
+
         currentIndex++;
-  
+
         // Set up an event listener to play the next video after the current one ends
         videoPlayer.onended = () => {
           if (currentIndex < videoList.length) {
             setTimeout(playNext, 1000); // 1-second delay
           } else {
             console.log("finish"); // Log "finish" after the last video
-            theEnd.style.zIndex = "4"
+            theEnd.style.zIndex = "4";
           }
         };
       }
     };
-  
+
     playNext();
   }, 10000);
-  revew.style.zIndex = "4"
-  let procents =  100 -((65 / 100) * videoSequence.length )  ;
-  let trezz = `<div id="revweList"> <p id="reviewTitle">REVEW  <span>${videoSequence.length}</span></p> <div> <p id = "procent"> ${ Math.round(procents)} %  <p/>`
+
+  revew.style.zIndex = "4";
+  let procents = 100 - (65 / 100) * videoSequence.length;
+  let trezz = `<div id="revweList"> <p id="reviewTitle">REVEW  <span>${videoSequence.length}</span></p> <div> <p id = "procent"> ${Math.round(procents)} %  <p/>`;
   videoSequence.forEach(element => {
-    trezz = trezz + `<p class="mistakes"><span>${element}.</span> ${answerdata[element]}</p> ` 
-    
+    trezz = trezz + `<p class="mistakes"><span>${element}.</span> ${answerdata[element]}</p> `;
   });
-  trezz = trezz + "<div/></div>"
-  revew.innerHTML = trezz
+  trezz = trezz + "<div/></div>";
+  revew.innerHTML = trezz;
+
   setTimeout(() => {
-    revew.style.zIndex = "-1"
+    revew.style.zIndex = "-1";
   }, 10000);
-
-  
-
-
 }
-
 
 startButton.addEventListener('click', () => {
   startButton.className = "startStop"
