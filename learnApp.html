@@ -297,7 +297,7 @@ margin: 0.3vh;
 </head>
 <body>
   <div id="backgroundInfo">
-    <div id="hint">Press "Tab" for hint</div>
+    <div id="hint">Tab</div>
     <div id="mainContainer">
       
         <div id="firstCont" class="container"></div>
@@ -308,7 +308,7 @@ margin: 0.3vh;
     </div>
   <div id="controls">
     <form id="form">
-    <input id="input" type="text" >
+    <input id="input" type="text" placeholder="Type" >
     </form>
     <button id="start">START</button>
 </div>
@@ -777,7 +777,7 @@ let theWord = "word"
 input.addEventListener('keypress', event => {
   
   if (event.key === 'Enter') {
-    hint.innerText = "Press Tab for hint"
+    hint.innerText = "Tab"
     hint.style.color = "grey"
     
    
