@@ -297,7 +297,7 @@ margin: 0.3vh;
 </head>
 <body>
   <div id="backgroundInfo">
-    <div id="hint">Hint</div>
+    <div id="hint">Press "Tab" for hint</div>
     <div id="mainContainer">
       
         <div id="firstCont" class="container"></div>
@@ -308,7 +308,7 @@ margin: 0.3vh;
     </div>
   <div id="controls">
     <form id="form">
-    <input id="input" type="text" placeholder="Type">
+    <input id="input" type="text" >
     </form>
     <button id="start">START</button>
 </div>
@@ -508,9 +508,6 @@ let finish = 0;
 let dd = firstArray[0]
 
 
-
-
-
 function playVideosSequentially(videoList) {
   setTimeout(() => {
     let currentIndex = 0;
@@ -580,6 +577,7 @@ startButton.innerText = dd
    controls.style.zIndex = "3"
    
     })
+    input.focus();
 });
 let hiee = "32.7%"
 let flet1 = 36.6
@@ -615,10 +613,6 @@ function createDivs(container, array , a) {
       div.style.alignItems = "center"
       div.style.justifyContent = "center"
       div.style.backgroundSize = "contain"
-      
-    
-    
-     
 
       if (a> 5 && a< 21) {
         hiee = '35.7%'
@@ -628,17 +622,13 @@ function createDivs(container, array , a) {
         hiee = '23%'
       }
 
-
-
       if (a < 3) {
           flet1 = flet1 + 6.7
           div.style.top = '34%'
           div.style.left = `${flet1}%`
           div.style.height = '35.7%'
           div.style.width = "5.7%"
-          
-       
-       
+           
       }
       if (a>2 && a<6) {
         
@@ -647,10 +637,6 @@ function createDivs(container, array , a) {
         div.style.left = `${flet2}%`
         div.style.height = hiee
       }
-
-
-
-
 
       if (a>5 && a<10) {
         
@@ -673,9 +659,6 @@ function createDivs(container, array , a) {
         div.style.left = `${flet5}%`
         div.style.height = hiee
       }
-
-
-
 
       if (a>20 && a<28) {
         
@@ -714,22 +697,8 @@ function createDivs(container, array , a) {
         div.style.height = hiee
       }
 
-      
-     
-
-
-
-      
-      
-      
-
       container.appendChild(div);
-      
-      
-     
-
-      
-      
+         
   });
 }
 
@@ -799,13 +768,8 @@ function getNextDivIndex(containerIndex, indexInContainer) {
 
   }
 
- 
-  
-
-
   return nextIndex;
 }
-
 
 
 let theWord = "word"
@@ -813,8 +777,9 @@ let theWord = "word"
 input.addEventListener('keypress', event => {
   
   if (event.key === 'Enter') {
-    hint.innerText = "Hint"
-    hint.style.color = "rgb(71, 70, 70)"
+    hint.innerText = "Press Tab for hint"
+    hint.style.color = "grey"
+    
    
       event.preventDefault()
       const value = input.value.trim();
@@ -857,7 +822,9 @@ input.addEventListener('keypress', event => {
                       videoQuestion.style.zIndex = '3';
                       information.style.zIndex = "-1"
                      videoQuestion.src = `./questions/question${dd}.mp4`
+                     console.log("finish  "+ finish)
                   } else {
+                    console.log("finish  else "+ finish)
                     if (videoSequence.length > 0) {
                       videoPlayer.style.zIndex = "3"
                       playVideosSequentially(videoSequence);
@@ -908,25 +875,6 @@ input.addEventListener('keypress', event => {
           currentDiv.appendChild(goInside)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           blueDivs.add(currentDiv);
 
           currentIndexInContainer = 0;
@@ -971,15 +919,20 @@ input.addEventListener('keypress', event => {
   
 });
 
-hint.addEventListener('click', () => {
-  hint.innerText = answerdata[dd]
-  hint.style.color = "white"
+
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Tab') {
+     hint.innerText = answerdata[dd]
+     hint.style.color = "white"
+
+     
+   // Focus on the input field
+   
+  }
+  input.focus(); 
   
-})
-
-
-
-
+});
 
 </script>
 </body>
